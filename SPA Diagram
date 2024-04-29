@@ -1,0 +1,18 @@
+graph TD;
+    subgraph Browser
+        A[User visits https://studies.cs.helsinki.fi/exampleapp/spa]
+        B[User types in the note and clicks the submit button]
+        C[Browsers sends the user input to the server via POST request]
+        D[Browser sends a new GET request and reloads]
+    end
+
+    subgraph Server
+        E[Server recieves POST request from the browser]
+        F[The server responds with HTTP status code 302 causing new GET request on the browser]
+    end
+
+    A --> B;
+    B --> C;
+    C --> D;
+
+    E --> F;
